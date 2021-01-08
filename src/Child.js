@@ -2,9 +2,12 @@ import React, { useContext, useReducer } from "react";
 import { transContext } from "./TransContext";
 
 function Child() {
-
     let transactions = useContext(transContext);
-
+    
+    const handleAddition = (event) => {
+        event.preventDefault();
+        
+    }
 
   return (
     <div className="container">
@@ -24,17 +27,18 @@ function Child() {
       </div>
 
       <h3>History</h3>
-          <hr />
-          
-          <ul className="transaction-list">
-              {transactions.map((transobj, index) => {
-                  return( <li key={index}>
-                      <span>{transobj.description}</span>
-                      <span>{ transobj.amount }</span>
-              </li>)
-              })}
+      <hr />
 
-          </ul>
+      <ul className="transaction-list">
+        {transactions.map((transobj, index) => {
+          return (
+            <li key={index}>
+              <span>{transobj.description}</span>
+              <span>{transobj.amount}</span>
+            </li>
+          );
+        })}
+      </ul>
 
       <h3>Add New Transaction</h3>
       <hr />
@@ -54,7 +58,7 @@ function Child() {
 
         <br />
 
-        <input type="submit" value="Add Transaction" />
+        <input type="submit" value="Add Transaction" onSubmit={ handleAddition } />
       </form>
     </div>
   );

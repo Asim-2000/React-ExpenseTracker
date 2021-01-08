@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useContext, useReducer } from "react";
+import { transContext } from "./TransContext";
 
 function Child() {
 
-    let transactions = [
-        {amount:+500, description:"cash"},
-        {amount:-50, description:"book"},
-        {amount:+10, description:"camera"},
-    ]
+    let transactions = useContext(transContext);
+
 
   return (
     <div className="container">
@@ -30,7 +28,7 @@ function Child() {
           
           <ul className="transaction-list">
               {transactions.map((transobj, index) => {
-                  return( <li>
+                  return( <li key={index}>
                       <span>{transobj.description}</span>
                       <span>{ transobj.amount }</span>
               </li>)

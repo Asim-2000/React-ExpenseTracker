@@ -1,17 +1,22 @@
-import React, { useContext, useReducer, useState } from "react";
+import React, { useContext, useState } from "react";
 import { transContext } from "./TransContext";
 
 function Child() {
-    let transactions = useContext(transContext);
-
+    let {  transactions , AddTras } = useContext(transContext);
+    
     let [newDesc, setDesc] = useState("")
     let [newAmmount, setAmmount]= useState(0)
     
     const handleAddition = (event) => {
         event.preventDefault();
-        console.log(newDesc, newAmmount);
+        AddTras({
+            amount: newAmmount,
+        description:newDesc
+        })
+        
         
     }
+    console.log(AddTras);
 
   return (
     <div className="container">
@@ -34,11 +39,11 @@ function Child() {
       <hr />
 
       <ul className="transaction-list">
-        {transactions.map((transobj, index) => {
+        {transactions.map((transObj, index) => {
           return (
             <li key={index}>
-              <span>{transobj.description}</span>
-              <span>{transobj.amount}</span>
+              <span>{transObj.description}</span>
+              <span>{transObj.ammount}</span>
             </li>
           );
         })}

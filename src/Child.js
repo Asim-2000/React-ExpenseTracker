@@ -10,7 +10,7 @@ function Child() {
     const handleAddition = (event) => {
         event.preventDefault();
         AddTras({
-            amount: newAmmount,
+        ammount: newAmmount,
         description:newDesc
         })
         

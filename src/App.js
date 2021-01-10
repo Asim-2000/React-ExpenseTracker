@@ -1,16 +1,25 @@
 import React from "react";
 import "./App.css";
-import Child from "./Child";
-import { TransactionProvider } from "./TransContext";
+import Header from './Components/Header'
+import Balance from './Components/Balance'
+import IncomeExpenses from "./Components/IncomeExpenses";
+import TransactionList from "./Components/TransactionList";
 
 
 function App() {
   return (
-    <TransactionProvider>
+   
       <div>
-        <Child />
+      <Header />
+      <div className="container">
+
+        <Balance />
+        <IncomeExpenses />
+        <TransactionList/>
+
       </div>
-    </TransactionProvider>
+      </div>
+    
   );
 }
 

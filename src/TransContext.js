@@ -5,6 +5,7 @@ const inittransactions = [
   { ammount: +7945, description: "cash" },
   { ammount: -3450, description: "book" },
   { ammount: +14350, description: "camera" },
+  { ammount: +14350, description: "camera" },
 ];
 
 export const transContext = createContext(inittransactions);
@@ -17,7 +18,7 @@ export const TransactionProvider = ({ children }) => {
     dispatch({
       type: "ADD",
       payload: {
-        amount: transObj.amount,
+        ammount: transObj.ammount,
         description: transObj.description,
       },
     });
@@ -27,7 +28,7 @@ export const TransactionProvider = ({ children }) => {
     <transContext.Provider
       value={{
         transactions: state,
-        AddTras,
+        AddTras:AddTras,
       }}
     >
       {children}

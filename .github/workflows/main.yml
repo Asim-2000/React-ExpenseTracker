@@ -40,7 +40,7 @@ jobs:
         run: yarn build
       
       - name: Install Surge
-        uses: npm install --global surge
+        run: npm install --global surge
       
       - name: Deploy to Surge
         run: surge ./build expense-tracker-asim.surge.sh --token ${{ secrets.SURGE_TOKEN }}
